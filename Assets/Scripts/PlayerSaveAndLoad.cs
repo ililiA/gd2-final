@@ -37,6 +37,11 @@ public class PlayerSaveAndLoad : MonoBehaviour
 
         PlayerPrefs.SetInt("manaPotion", manaPotion.health);
         PlayerPrefs.SetInt("healthPotion", healthPotion.health);
+
+        Vector3 saveLocation = new Vector3(PlayerPrefs.GetFloat("posX"), PlayerPrefs.GetFloat("posY"), PlayerPrefs.GetFloat("posZ"));
+
+        Debug.DrawLine(saveLocation, saveLocation + Vector3.up * 50, Color.white, 1000);
+                                            
     }
 
     public void Load()

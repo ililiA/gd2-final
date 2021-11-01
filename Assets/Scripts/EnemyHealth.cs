@@ -72,7 +72,7 @@ public class EnemyHealth : MonoBehaviour
         // when the ai gets close to a destination
         // go to the next point
         // ! is the NOT operator
-        if(Vector3.Distance(this.transform.position, player.position) > 8)
+        if(Vector3.Distance(this.transform.position, player.position) > 10)
         {
             Debug.Log("Not Following Player");
             if(!agent.pathPending && agent.remainingDistance < 0.5f && !waiting)
