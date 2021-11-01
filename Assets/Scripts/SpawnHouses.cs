@@ -6,6 +6,7 @@ public class SpawnHouses : MonoBehaviour
 {
     public Transform[] spawnPoints;
     public GameObject[] houses;
+    public GameObject[] rubble;
 
     //following along/different from mine
     public Transform player;
@@ -30,6 +31,10 @@ public class SpawnHouses : MonoBehaviour
                     GameObject ai = Instantiate(aiPrefab, point.position, point.rotation);
                     ai.GetComponent<EnemyHealth>().player = player;
                 }
+            }
+            else
+            {
+                //spawn rubble
             }
         }
     }
