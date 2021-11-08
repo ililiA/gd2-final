@@ -18,14 +18,16 @@ public class SpawnHouses : MonoBehaviour
         foreach(Transform point in spawnPoints)
         {
             float chanceToSpawnHouse = Random.value;
+            float chanceToSpawnRubble = Random.value;
             Debug.Log("Chance to spawn house: " + chanceToSpawnHouse);
+            Debug.Log("Chance to spawn rubble: " + chanceToSpawnRubble);
             if(Random.value < .75f)
             {
                 GameObject newHouse = Instantiate(houses[Random.Range(0, houses.Length)]);
                 newHouse.transform.position = point.position;
                 newHouse.transform.rotation = point.rotation;
                 // spawn in 2-5 AI
-                int numberOfAI = Random.Range(2, 6);
+                int numberOfAI = Random.Range(2, 3);
                 for(int i = 0; i < numberOfAI; i += 1)
                 {
                     GameObject ai = Instantiate(aiPrefab, point.position, point.rotation);
@@ -34,7 +36,9 @@ public class SpawnHouses : MonoBehaviour
             }
             else
             {
-                //spawn rubble
+                GameObject newRubble = Instantiate(rubble[Random.Range(0, rubble.Length)]);
+                newRubble.transform.position = point.position;
+                newRubble.transform.rotation = point.rotation;
             }
         }
     }
