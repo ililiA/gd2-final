@@ -261,5 +261,22 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_Jumping = false;
             }
         }
+
+    void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.CompareTag("Ice"))
+        {
+            Debug.Log("Ice ice baby");
+            m_RigidBody.drag = 0f;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.CompareTag("Ice"))
+        {
+            m_RigidBody.drag = 5f;
+        }
+    }
     }
 }

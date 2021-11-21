@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
 
     public UIController ui;
 
+    public Rigidbody rb;
+
     void Start()
     {
         if(hp == null)
@@ -126,6 +128,19 @@ public class PlayerController : MonoBehaviour
         {
             //call the save function
             save.Save();
+        }
+
+        else if(other.gameObject.CompareTag("ManaPotion"))
+        {
+            rb.drag = 0;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.CompareTag("ManaPotion"))
+        {
+            rb.drag = 5;
         }
     }
 }

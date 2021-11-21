@@ -11,6 +11,7 @@ TagManager:
   - Food
   - Fire
   - Checkpoint
+  - Ice
   layers:
   - Default
   - TransparentFX
