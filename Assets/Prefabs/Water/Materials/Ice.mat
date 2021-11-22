@@ -122,7 +122,7 @@ Material:
     - _NormalsDisplacement: 0
     - _ReflDistort: 0.9267696
     - _RefrDistort: 1.4393286
-    - _Shininess: 318.04
+    - _Shininess: 199
     - _ShoreTiling: 56.862743
     - _Speed: 0.4137931
     - _TargetValue: 0
@@ -141,7 +141,7 @@ Material:
     - WaveSpeed: {r: 1.086165, g: 4.440575, b: 12.105146, a: -3.0206447}
     - _AnimationDirection: {r: 0, g: 0, b: 0, a: 0}
     - _AnimationTiling: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 0.33999997, g: 0.81611943, b: 1, a: 0.89411765}
+    - _BaseColor: {r: 0.454, g: 0.84725004, b: 1, a: 1}
     - _BumpDirection: {r: 0, g: 0, b: 0, a: 0}
     - _BumpMap_ST: {r: 1, g: 1, b: 0, a: 0}
     - _BumpTiling: {r: 0.05, g: 0.05, b: 0.05, a: 0.05}

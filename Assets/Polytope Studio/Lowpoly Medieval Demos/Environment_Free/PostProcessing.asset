@@ -53,7 +53,7 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 0
-    value: 0
+    value: -23
   tint:
     overrideState: 0
     value: 0
@@ -109,8 +109,8 @@ MonoBehaviour:
     overrideState: 0
     value: {x: 1, y: 0.87913305, z: 0.63924205, w: 0}
   gain:
-    overrideState: 0
-    value: {x: 0.99027854, y: 0.86403525, z: 1, w: 0}
+    overrideState: 1
+    value: {x: 1, y: 0.96342015, z: 0.9815543, w: -0.5296609}
   masterCurve:
     overrideState: 0
     value:
