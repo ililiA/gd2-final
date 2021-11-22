@@ -12,12 +12,26 @@ public class Follower : MonoBehaviour
 
     private bool waiting = false;
 
+    /*
+    void Awake()
+    {
+        if(player == null)
+        {
+            Transform player = GameObject.FindWithTag("Player").transform;
+        }
+    }
+    */
 
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Starting Start");
         agent = this.GetComponent<NavMeshAgent>();
+
+        if(player == null)
+        {
+            player = GameObject.FindWithTag("Player").transform;
+        }
 
         // keep it form stopping at each patrol point
         // agent.autoBraking = false;

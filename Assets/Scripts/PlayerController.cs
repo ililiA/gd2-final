@@ -38,6 +38,10 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        if(rb == null)
+        {
+            rb = this.GetComponent<Rigidbody>();
+        }
         if(hp == null)
         {
             hp = this.GetComponent<PlayerHealth>();

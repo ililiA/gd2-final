@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class FallingPlatform : MonoBehaviour
+public class FallingPlatforms : MonoBehaviour
 {
     public AnimationCurve curve;
 
     Rigidbody rb;
 
     Vector3 startingPosition;
+    Quaternion startingRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class FallingPlatform : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
         rb.isKinematic = true;  // not affected by gravity
         startingPosition = this.transform.position;
+        startingRotation = this.transform.rotation;
     }
 
     void OnTriggerEnter(Collider other)
@@ -39,6 +41,7 @@ public class FallingPlatform : MonoBehaviour
     IEnumerator LerpPosition()
     {
         Vector3 endPosition = this.transform.position;  // point A in our lerping
+        Quaternion endRotation = this.transform.rotation;
         float elaspedTime = 0f;                         // the time component of our lerping
         float returnInterval = 1f;                      // the total time of our lerping
         while(elaspedTime < returnInterval)
@@ -46,7 +49,11 @@ public class FallingPlatform : MonoBehaviour
             this.transform.position = Vector3.Lerp(endPosition, startingPosition, curve.Evaluate(elaspedTime / returnInterval));
             elaspedTime += Time.deltaTime;
 
+            this.transform.rotation = Quaternion.Lerp(endRotation, startingRotation, curve.Evaluate(elaspedTime / returnInterval));
+            elaspedTime += Time.deltaTime;
+
             yield return null;
         }
+        
     }
 }
