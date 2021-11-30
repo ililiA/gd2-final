@@ -16,6 +16,8 @@ TagManager:
   - ForestHavenTransition
   - EmberMountainsTransition
   - Lava
+  - Pickupable
+  - StartPosition
   layers:
   - Default
   - TransparentFX

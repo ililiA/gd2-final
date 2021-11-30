@@ -141,7 +141,7 @@ Material:
     - WaveSpeed: {r: 1.086165, g: 4.440575, b: 12.105146, a: -3.0206447}
     - _AnimationDirection: {r: 2, g: 4, b: 2, a: -1}
     - _AnimationTiling: {r: 0.04582553, g: 0.0182, b: 0.045714468, a: 0.027129691}
-    - _BaseColor: {r: 0.24313724, g: 0.6680384, b: 0.74509805, a: 0.87058824}
+    - _BaseColor: {r: 0.24313724, g: 0.6680384, b: 0.74509805, a: 0.8}
     - _BumpDirection: {r: 2, g: 1, b: -1, a: 1.5}
     - _BumpMap_ST: {r: 1, g: 1, b: 0, a: 0}
     - _BumpTiling: {r: 0.05, g: 0.05, b: 0.05, a: 0.05}
@@ -160,7 +160,7 @@ Material:
     - _GDirectionCD: {r: 0.1, g: -0.1, b: 0.1, a: -0.1}
     - _GFrequency: {r: 0.05, g: 0.5, b: 0.5, a: 0.5}
     - _GSpeed: {r: -2, g: 1, b: 1, a: 1}
-    - _GSteepness: {r: 2, g: 1, b: 2, a: 1}
+    - _GSteepness: {r: 0.2, g: 0.1, b: 0.2, a: 0.1}
     - _HorizonColor: {r: 0.052907113, g: 0.24486735, b: 0.2835821, a: 1}
     - _InvFadeParemeter: {r: 1, g: 0.71, b: 2.48, a: 0}
     - _MainTex_ST: {r: 1, g: 1, b: 0, a: 0}

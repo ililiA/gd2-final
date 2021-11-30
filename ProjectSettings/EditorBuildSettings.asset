@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/ForestHaven.unity
+    guid: 25d18ff326d4a7041961753d4f81d94b
+  - enabled: 1
+    path: Assets/Scenes/SnowRuins.unity
+    guid: 505354af38fecd4489962eaeb45a943c
+  - enabled: 1
+    path: Assets/Scenes/EmberMountains.unity
+    guid: 5aa0d3f323917a6418dd8e79bdabe4ed
   m_configObjects: {}

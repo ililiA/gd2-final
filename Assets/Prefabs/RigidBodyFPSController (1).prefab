@@ -262,14 +262,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877377674608356162}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 204.22, y: 23.82, z: 296.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 877377674608392036}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!54 &877377674604988452
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -519,11 +519,15 @@ MonoBehaviour:
   mana: {fileID: 877377675224874856}
   magicBullet: {fileID: 2945564315843659257, guid: c7d95a3e26167b04b8d4af7b8434e6dc, type: 3}
   hand: {fileID: 877377675770361820}
+  aud: {fileID: 0}
+  magicClip: {fileID: 0}
+  magicVolume: 0.5
   manaPotion: 0
   manaPotionText: {fileID: 0}
   healthPotion: 0
   healthPotionText: {fileID: 0}
   ui: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!114 &877377675224874862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,13 +578,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877377675770361823}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4079968, y: -0.37000048, z: 0.97999585}
+  m_LocalRotation: {x: 0.65192753, y: -0.008567088, z: -0.024524258, w: 0.7578362}
+  m_LocalPosition: {x: 0.561, y: -0.489, z: 0.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 877377674608392036}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 81, y: -16.703, z: -18}
 --- !u!33 &877377675770361827
 MeshFilter:
   m_ObjectHideFlags: 0
