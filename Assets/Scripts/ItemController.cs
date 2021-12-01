@@ -26,6 +26,7 @@ public class ItemController : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+        //AudioClip aud = GameObject.FindWithTag("Player");
     }
 
     public void Fire()
@@ -34,6 +35,7 @@ public class ItemController : MonoBehaviour
         //copy.transform.Translate(Vector3.forward * 2); // move the bullet in front of the player
         copy.AddRelativeForce(Vector3.forward * 50, ForceMode.Impulse); // shoot bullet forward
         copy.GetComponent<BulletController>().owner = hp;
+        aud.PlayOneShot(magicClip);
     }
 
     public void Drop()

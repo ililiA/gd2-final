@@ -1,3 +1,4 @@
+//transitions and whatnot
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,23 +24,31 @@ public class GameManager : MonoBehaviour
         if(player == null)
         {
             player = GameObject.FindWithTag("Player");
+            Debug.Log("Found player!");
         }
     }
-    void Start()
-    {
-        player.transform.position = startPosition.position;
-    }
+    
     public void Transition()
     {
-        startPosition = GameObject.FindWithTag("StartPosition").transform;
-        player = GameObject.FindWithTag("Player");
+        Debug.Log("moving to start!");
 
+        if(startPosition == null)
+        {
+            Debug.LogError("<color=red>You have not selected a start position.</color>");
+            startPosition = GameObject.FindWithTag("StartPosition").transform;
+            Debug.Log("found start!");
+        }
+        if(player == null)
+        {
+            player = GameObject.FindWithTag("Player");
+            Debug.Log("Found player!");
+        }
+        
         player.transform.position = startPosition.position;
-        //player.transform.rotation = startPosition.rotation;
-        Debug.Log("moving to start");
+        player.transform.rotation = startPosition.rotation;
 
-        //save = this.GetComponent<PlayerSaveAndLoad>();
-        //save.Save();
+        save = this.GetComponent<PlayerSaveAndLoad>();
+        save.Save();
     }
 
     void Update()

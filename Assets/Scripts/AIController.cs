@@ -25,6 +25,11 @@ public class AIController : MonoBehaviour
         // keep it form stopping at each patrol point
         // agent.autoBraking = false;
 
+        if(player == null)
+        {
+            player = GameObject.FindWithTag("Player").transform;
+        }
+
         StartCoroutine(GoToNextPoint());
 
         anim.SetInteger("Health", health);

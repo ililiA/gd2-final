@@ -12,15 +12,13 @@ public class Follower : MonoBehaviour
 
     private bool waiting = false;
 
-    /*
     void Awake()
     {
         if(player == null)
         {
-            Transform player = GameObject.FindWithTag("Player").transform;
+            player = GameObject.FindWithTag("Player").transform;
         }
     }
-    */
 
     // Start is called before the first frame update
     void Start()

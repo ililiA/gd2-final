@@ -1,6 +1,7 @@
 // handle collision with enemies and firing magic
 // haarryy?                sIr
 // advanced potions like felix felicis too
+// sound of silence
 
 using System.Collections;
 using System.Collections.Generic;
@@ -36,9 +37,14 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI healthPotionText;
 
     private PlayerSaveAndLoad save;
-    private GameManager transition;
+    public GameManager transition;
     public UIController ui;
     public Rigidbody rb;
+
+    public int yellowKey = 0;
+    public int blueKey = 0;
+    public int redKey = 0;
+
 
     void Awake()
     {
@@ -64,7 +70,9 @@ public class PlayerController : MonoBehaviour
         //healthPotion = this.GetComponent<PlayerHealth>();
 
         save = this.GetComponent<PlayerSaveAndLoad>();
-        transition = this.GetComponent<GameManager>();
+        //this means it's on the same object!!!
+        //if script function is on another object you have to find the other object then the script
+        transition = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
         rb.velocity = Vector3.zero;                 //set speed to zero
         rb.angularVelocity = Vector3.zero;          //set rotation to zero
@@ -115,31 +123,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*
-    void Fire()
-    {
-        Rigidbody copy = Instantiate(magicBullet, item.transform.position, item.transform.rotation);
-        //copy.transform.Translate(Vector3.forward * 2); // move the bullet in front of the player
-        copy.AddRelativeForce(Vector3.forward * 50, ForceMode.Impulse); // shoot bullet forward
-        copy.GetComponent<BulletController>().owner = hp;
-    }
-
-    public void Drop()
-    {
-        this.transform.SetParent(null);
-        // set rigidbody to is Kinematic = false
-        rb.isKinematic = false;
-        // throw item forward
-        this.transform.Translate(Vector3.back *3);
-        rb.AddRelativeForce(Vector3.back * 10, ForceMode.Impulse);
-    }
-    */
-
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Enemy"))
         {
             hp.ChangeHealth(-10);
+            //taking damage
         }
 
         if(other.gameObject.CompareTag("Pickupable"))
@@ -160,11 +149,10 @@ public class PlayerController : MonoBehaviour
             else
             {
                 Debug.Log("Already holding something.");
-                
             }
         }
 
-        else if(other.gameObject.CompareTag("HealthPotion"))
+        if(other.gameObject.CompareTag("HealthPotion"))
         {
             healthPotion += 1;
             healthPotionText.text = "Health Potions: " + healthPotion.ToString();
@@ -178,7 +166,6 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             //play eat audio clip
         }
-
         else if(other.gameObject.CompareTag("ManaPotion"))
         {
             manaPotion += 1;
@@ -192,22 +179,65 @@ public class PlayerController : MonoBehaviour
             //call the save function
             save.Save();
         }
-        else if(other.gameObject.CompareTag("SnowRuinTransition"))
+
+        if(other.gameObject.CompareTag("SnowRuinTransition"))
         {
+            Debug.Log("running transition");
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:1);
             transition.Transition();
+            //load next scene
         }
         else if(other.gameObject.CompareTag("ForestHavenTransition"))
         {
+            Debug.Log("running transition");
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:0);
             transition.Transition();
         }
         else if(other.gameObject.CompareTag("EmberMountainsTransition"))
         {
+            Debug.Log("running transition");
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:2);
             transition.Transition();
         }
-        else if(other.gameObject.CompareTag("Ice"))
+
+        Debug.Log(other.tag);
+        if(other.gameObject.CompareTag("Topaz"))
+        {
+            yellowKey += 1;
+            Destroy(other.gameObject);
+        }
+        Debug.Log(other.tag);
+        if(other.gameObject.CompareTag("Sapphire"))
+        {
+            blueKey += 1;
+            Destroy(other.gameObject);
+        }
+        Debug.Log(other.tag);
+        if(other.gameObject.CompareTag("Ruby"))
+        {
+            redKey += 1;
+            Destroy(other.gameObject);
+        }
+
+        if(other.gameObject.CompareTag("TheEnd"))
+        {
+            if(yellowKey > 0 && blueKey > 0 && redKey > 0)
+            {    
+                yellowKey -= 1;
+                blueKey -= 1;
+                redKey -= 1;
+                
+                Debug.Log("running transition");
+                UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:3);
+                transition.Transition();
+            }
+            else
+            {
+                Debug.Log("You need all three keys to cross the barrier!");
+            }
+        }
+
+        if(other.gameObject.CompareTag("Ice"))
         {
             rb.drag = 0;
         }

@@ -18,6 +18,10 @@ TagManager:
   - Lava
   - Pickupable
   - StartPosition
+  - Topaz
+  - Ruby
+  - Sapphire
+  - TheEnd
   layers:
   - Default
   - TransparentFX
